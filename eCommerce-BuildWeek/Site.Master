@@ -1,0 +1,132 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="eCommerce_BuildWeek.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="it">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Applicazione ASP.NET</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="./Content/Site.css" rel="stylesheet" />
+    <link href="./Content/bootstrap.css" rel="stylesheet" />
+    <link href="./Content/style.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark mb-5" style="margin-top: 30px; position: relative;">
+    <div class="container">
+        <div class="navbar-nav flex-row">
+             <ul class="navbar-nav flex-grow-1 justify-content-end">
+                <li class="nav-item"><a class="nav-link" runat="server" href="~/Default.aspx">Home</a></li>
+                
+                 
+                 
+                 <li class="nav-item dropdown ms-xs-0 ms-sm-3 ">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Articoli
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li class="nav-item"><a class="nav-link dropdown-item px-3" runat="server" href="~/Articoli.aspx">Tutti gli articoli</a></li>
+                        <li class="nav-item"><a class="nav-link dropdown-item px-3" runat="server" href="~/Articoli.aspx?Categoria=Fucile%20d'assalto">Fucili d'assalto</a></li>
+                        <li class="nav-item"><a  class="nav-link dropdown-item px-3" runat="server" href="~/Articoli.aspx?Categoria=mitraglietta">Mitragliette</a></li>
+                        <li class="nav-item"><a class="nav-link dropdown-item px-3" runat="server" href="~/Articoli.aspx?Categoria=pistola">Pistole</a></li>
+
+                    </ul>
+                </li>
+
+
+
+                 <li class="nav-item"><a  id="backOffice" class="ms-xs-0 ms-sm-3 nav-link" runat="server" href="/backOffice.aspx">Black-office</a></li>
+            </ul>
+        </div>
+
+                    
+
+        
+        
+        <div class="mx-auto d-none d-lg-block">
+              <a class="navbar-brand" runat="server" href="~/" style="position: absolute; top: -27px; left: 50%; transform: translateX(-50%);">
+                <img src="./Content/assets/logo.png" alt="Logo" style="height: 100px;">
+            </a>
+        </div>
+        
+        <div class="navbar-collapse  justify-content-end">
+
+<%--             <ul class="navbar-nav flex-grow-1 justify-content-end">
+                <li class="nav-item"><a class="me-3 nav-link" runat="server" href="~/">Link Scam</a></li>
+                 <li class="nav-item"><a class="me-3 nav-link" runat="server" href="~/">Link</a></li>
+            </ul>--%>
+
+            <a id="Carrello" class="rounded-2 position-relative text-white border-0" href="/Carrello.aspx">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart4 mb-1" viewBox="0 0 16 16">
+                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+                </svg>
+                <span id="badge" runat="server" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    <asp:Label ID="carrelloCount" runat="server" Text="0"></asp:Label>
+                </span>
+            </a>
+
+            <a id="login" class="rounded-2 position-relative text-white border-0" href="/Login.aspx" runat="server">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person ms-xs-0 ms-sm-3 mb-1" viewBox="0 0 16 16">
+                    <path d="M8 8a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a5 5 0 0 1 5 5v1H3v-1a5 5 0 0 1 5-5z" />
+                </svg>
+            </a>
+            <div class=" align-content-center ms-4 flex-column justify-content-center" runat="server" id="pannelloUtente">
+
+                <p id="benvenuto" class="text-white m-0 p-0 title-up mb-1 text-center" runat="server">Ciao, <a runat="server" id="questoUtente" class=" text-white" href="/InfoUtenteaspx?utente="> </a></p>
+                <asp:Button ID="logout" class="btn p-0 m-0 text-danger title-up" runat="server" Text="-> Logout <-" OnClick="logout_Click" />
+            </div>
+        </div>
+    </div>
+        </nav>
+
+        <div class="container body-content ">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer class="d-flex justify-content-between small mt-5 custom-footer py-2">
+                <div>
+                    <p class="small">&copy; <%: DateTime.Now.Year %> - BlackMarket Store</p>
+                </div>
+                <div class="text-end small text-light text-opacity-50">
+                    <address class="m-0"><span class="fw-semibold">BlackMarket Store</span>, Piazza la Bomba snc, 00000 Universe</address>
+                    <address class="m-0">mail: info@blackmarketstore.com</address>
+                </div>
+                
+                
+            </footer>
+        </div>
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+</html>
